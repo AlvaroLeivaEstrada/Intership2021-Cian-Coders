@@ -24,6 +24,7 @@ export default class Grids extends Component {
 
     render() {
         const { data, loader, listar: onPageChange, onSortChange } = this.props;
+       
 
         return (
             <div className="py-4">

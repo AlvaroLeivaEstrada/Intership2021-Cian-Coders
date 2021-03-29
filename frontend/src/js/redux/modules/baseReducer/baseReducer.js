@@ -58,7 +58,9 @@ export const createReducer = (storeId, endpoint, formName=undefined, resourceLis
     // -----------------------------------
 
     const listar = (page = 1) => (dispatch, getStore) => {
+        
         const resource = getStore()[storeId];
+        
         const params = { page };
         params.ordering = resource.ordering;
         params.search = resource.search;
@@ -73,9 +75,11 @@ export const createReducer = (storeId, endpoint, formName=undefined, resourceLis
     };
 
     const leer = id => (dispatch) => {
+      
         dispatch(setLoader(true));
         api.get(`${endpoint}/${id}`).then((response) => {
             dispatch(setItem(response));
+            
             if (!!formName)
                 dispatch(initializeForm(formName, response));
         }).catch(() => {
@@ -159,6 +163,7 @@ export const createReducer = (storeId, endpoint, formName=undefined, resourceLis
             };
         },
         [constants.DATA]: (state, { data }) => {
+          
             return {
                 ...state,
                 data,

@@ -17,14 +17,31 @@ class Profile extends Component {
 
     update = (data) => {
         const { update } = this.props;
-        update({...data, avatar: null}, [{"file": this.state.avatar, "name": "avatar"}]);
+        update({...data, avatar: null}, [{file: this.state.avatar, name: "avatar"}]);
     };
 
     render() {
         const { me } = this.props;
-
+        const profile = me.profile;
+       
+    
         return (
-            <ProfileForm onSubmit={this.update} me={me} setAvatar={this.setAvatar} />
+            <ProfileForm
+             onSubmit={this.update} 
+             me={me} 
+             initialValues={profile?
+                 {
+                 username:me.username,
+                 nombre:me.profile.nombre,
+                 apellidos:me.profile.apellidos,
+                 phone:me.profile.phone,
+                 gender:me.profile.gender,
+                 address:me.profile.address
+             }:{
+                username:me.username
+             }
+            }
+             setAvatar={this.setAvatar} />
         );
     }
 }

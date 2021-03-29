@@ -10,6 +10,7 @@ const genders = [
 
 const ProfileForm = (props) => {
     const { handleSubmit, me, setAvatar } = props;
+    
     return (
             <form action="" onSubmit={handleSubmit} className="py-4">
                 <h2>PERFIL</h2>
@@ -27,13 +28,13 @@ const ProfileForm = (props) => {
                             </div>
 
                             <div className="form-group has-feedback">
-                                <label htmlFor="first_name">Nombre</label>
-                                <Field name="first_name" placeholder="Nombre" component={renderField} type="text" className="form-control" />
+                                <label htmlFor="profile.nombre">Nombre</label>
+                                <Field name="nombre" placeholder="Nombre" component={renderField} type="text" className="form-control" />
                             </div>
 
                             <div className="form-group has-feedback">
-                                <label htmlFor="last_name">Apellido</label>
-                                <Field name="last_name" placeholder="Nombre" component={renderField} type="text" className="form-control" />
+                                <label htmlFor="profile.apellidos">Apellido</label>
+                                <Field name="apellidos" placeholder="Apellidos" component={renderField} type="text" className="form-control" />
                             </div>
                         </div>
                     </div>
@@ -43,7 +44,7 @@ const ProfileForm = (props) => {
                                 <label htmlFor="profile.phone">Teléfono</label>
                                 <Field
                                     numberFormat={"+(502) ####-####"}
-                                    name="profile.phone"
+                                    name="phone"
                                     placeholder="Teléfono"
                                     component={renderNumber}
                                     className="form-control"
@@ -51,13 +52,13 @@ const ProfileForm = (props) => {
                             </div>
                             <div className="form-group has-feedback">
                                 <label htmlFor="profile.gender">Género</label>
-                                <Field name="profile.gender" placeholder="Género" component={SelectField} options={genders} className="form-control" />
+                                <Field name="gender" placeholder="Género" component={SelectField} options={genders} className="form-control" />
                             </div>
                         </div>
                         <div className="form-group has-feedback flex-1 mx-3">
                             <div className="form-group has-feedback">
                                 <label htmlFor="profile.address">Dirección</label>
-                                <Field name="profile.address" placeholder="Dirección" component={renderField} type="text" className="form-control" />
+                                <Field name="address" placeholder="Dirección" component={renderField} type="text" className="form-control" />
                             </div>
                         </div>
                     </div>

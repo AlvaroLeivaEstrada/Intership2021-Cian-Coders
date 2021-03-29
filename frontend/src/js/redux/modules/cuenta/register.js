@@ -25,6 +25,7 @@ export const setLoader = loader => ({
 
 export const onSubmit = (data = {}) => (dispatch) => {
     dispatch(setLoader(true));
+    
     api.post('user', data).then(() => {
         dispatch(push("/login"));
         NotificationManager.success('Cuenta creada con éxito, puedes iniciar sesión', 'Éxito', 3000);
@@ -35,14 +36,36 @@ export const onSubmit = (data = {}) => (dispatch) => {
     });
 };
 
+export const restablecer = (data)=>()=>{
+    dispatch(setLoader(true));
+    const params ={email:data.email}
+    api.get('user/validarEmail',params).then((response)=>{
+       
+    }).catch(()=>{
+        NotificationManager.error('Correo electronico no existe en la base de datos','ERROR',0)
+    });
+};
+
+const registerNewPassword =()=>(dispatch,match) =>{
+    dispatch(setLoader(true));
+    console.log( "Hola")
+}
+
 export const logOut = () => (dispatch) => {
     localStorage.removeItem('token');
+    localStorage.removeItem('rol');
+    localStorage.removeItem('id');
+    localStorage.removeItem('user');
+    localStorage.removeItem('admin')
+
 };
 
 
 export const actions = {
     onSubmit,
     logOut,
+    restablecer,
+    registerNewPassword
 };
 
 export const reducers = {

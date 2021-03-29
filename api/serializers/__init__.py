@@ -1,1 +1,5 @@
 from .user import UserSerializer, UserReadSerializer
+from .empresa import EmpresaRegistroSerializer,EmpresaSerializer
+from.catedratico import CatedraticoSerializer
+from .nivel import NivelSerializer,NivelRegistroSerializer
+from .estudiante import EstudianteSerializer,RegistroEstudianteSerializer

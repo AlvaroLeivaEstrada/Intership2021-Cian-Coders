@@ -22,6 +22,7 @@ class UserSerializer(serializers.ModelSerializer):
             'profile',
             'password'
         )
+        
 
 
 class UserReadSerializer(serializers.ModelSerializer):
@@ -30,6 +31,7 @@ class UserReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
+            'id',
             'username',
             'first_name',
             'last_name',
@@ -37,4 +39,7 @@ class UserReadSerializer(serializers.ModelSerializer):
             'is_staff',
             'email',
             'profile',
+            'last_login',
+            
         )
+       

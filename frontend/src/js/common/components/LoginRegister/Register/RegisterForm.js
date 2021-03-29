@@ -19,6 +19,8 @@ const RegisterForm = (props) => {
                 <label htmlFor="username">Usuario</label>
                 <Field name="username" label="Usuario" component={renderField} type="text" className="form-control" />
             </div>
+            
+            
             <div className="form-group has-feedback">
                 <label htmlFor="password">Contraseña</label>
                 <Field

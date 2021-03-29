@@ -23,6 +23,9 @@ export const setLoader = loader => ({
 
 export const update = (data = {}, attachments=[]) => (dispatch, getStore) => {
     dispatch(setLoader(true));
+    console.log(data)
+
+
     api.putAttachments('user/update_me', data, attachments).then((response) => {
         dispatch(setMe(response));
         NotificationManager.success('Datos actualizados exitosamente', 'ERROR', 1000);
